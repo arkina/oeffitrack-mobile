@@ -54,4 +54,21 @@ class Main extends CI_Controller
     $this->load->view("stdfooter");
   }
   
+  function status()
+  {
+    if ($this->agent->is_browser()) {
+      $agent = $this->agent->browser().' '.$this->agent->version();
+    }
+    elseif ($this->agent->is_robot()) {
+      $agent = $this->agent->robot();
+    }
+    elseif ($this->agent->is_mobile()) {
+      $agent = $this->agent->mobile();
+    } else {
+      $agent = 'Unidentified User Agent';
+    }
+    echo $agent."</br>";
+    echo $this->agent->platform(); // Platform info (Windows, Linux, Mac, etc.)
+  }
+  
 }
