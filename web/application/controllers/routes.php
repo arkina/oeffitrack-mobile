@@ -19,9 +19,13 @@ class Routes extends CI_Controller
     }
     elseif ($view == 'html')
     {
-      $this->load->view('stdheader');
-      $this->load->view('routes', array('rows' => $rows));
-      $this->load->view('stdfooter');
+      if ($this->agent->is_mobile() === FALSE) {
+        $this->load->view('stdheader');
+        $this->load->view('routes', array('rows' => $rows));
+        $this->load->view('stdfooter');
+      } else {
+        $this->load->view('mobile/mobheader');
+      }
     }
   }
 }

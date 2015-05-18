@@ -4,9 +4,20 @@ class Main extends CI_Controller
 {
   function index()
   {
-    $this->load->view("stdheader");
-    $this->load->view("overview");
-    $this->load->view("stdfooter");
+    if ($this->agent->is_mobile() == FALSE) {
+      $this->load->view("stdheader");
+      $this->load->view("overview");
+      $this->load->view("stdfooter");
+    } else {
+      // mobile view
+      $this->load->view("mobile/mobheader");
+    }
+  }
+  
+  // mobile test
+  function indexMobile()
+  {
+    $this->load->view("mobile/mobheader");
   }
   
   function login()
@@ -20,7 +31,7 @@ class Main extends CI_Controller
   function logout()
   {
     $this->session->sess_destroy();
-    redirect('/');
+    $this->index();
   }
   
   function loginAction()
@@ -29,7 +40,6 @@ class Main extends CI_Controller
     $this->load->library(array('form_validation'));
     $this->form_validation->set_rules('name', 'Name', 'required');
     $this->form_validation->set_rules('password', 'Password', 'required');
-
     if ($this->form_validation->run() == TRUE) {
       $name = $this->input->post('name', TRUE);
       $pw = $this->input->post('password', TRUE);
@@ -38,10 +48,9 @@ class Main extends CI_Controller
         $this->session->set_userdata('logged_in',TRUE);
         $this->session->set_userdata('name', $name);
         $this->session->set_userdata('logger', $logger);
-        redirect('main/logger');
       }
     }
-    $this->login();
+    $this->index();
   }
   
   function logger()
@@ -62,7 +71,8 @@ class Main extends CI_Controller
     elseif ($this->agent->is_robot()) {
       $agent = $this->agent->robot();
     }
-    elseif ($this->agent->is_mobile()) {
+    if ($this->agent->is_mobile()) {
+      echo "mobile: ";
       $agent = $this->agent->mobile();
     } else {
       $agent = 'Unidentified User Agent';

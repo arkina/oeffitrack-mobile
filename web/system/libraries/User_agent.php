@@ -358,6 +358,8 @@ class CI_User_agent {
 	 */
 	public function is_mobile($key = NULL)
 	{
+    // hack to test mobile 
+    return TRUE;
 		if ( ! $this->is_mobile)
 		{
 			return FALSE;
