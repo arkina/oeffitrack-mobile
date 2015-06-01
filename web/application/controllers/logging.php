@@ -33,9 +33,7 @@ class Logging extends CI_Controller
   {
     $this->load->model('routeinfo');
     $route = $this->routeinfo->get($routeid);
-    $this->load->view('stdheader');
-    $this->load->view('logtool', array('route' => $route, 'mock' => $mock));
-    $this->load->view('stdfooter');
+    $this->load->view('mobile/mlogtool', array('route' => $route, 'mock' => $mock));
   }
   
   function log()

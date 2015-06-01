@@ -16,31 +16,17 @@
   <div data-role="header">
     <h1>Oeffitrack Mobile Logtool</h1>
     <div data-role="controlgroup" data-type="horizontal">
-      <a href="#" class="ui-btn">Start</a>
-      <a href="#" class="ui-btn">Reset</a>
+      <a href="javascript:alert('Start');" class="ui-btn" id="start_btn">Start</a>
+      <a href="#" class="ui-btn" id="reset_btn">Reset</a>
     </div>
-</div>
+  </div>
   
+  <div data-role="main" class="ui-content">
+    <h3> TEST ...</h3>
+  </div>
 
   <div data-role="footer">
     <h1>Footer Text</h1>
-  </div>
-  
-
-</div>
-
-    <div data-role="page" id="loginPage">
-    <div data-role="main" class="ui-content">
-  <form method="post" action="/main/loginAction">
-    <div>
-      <h3>Login information</h3>
-      <label for="username" >Username:</label>
-      <input type="text" name="name" id="name" placeholder="Username">
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password" placeholder="Password">
-      <input type="submit" data-inline="true" name="login" id="login" value="Log in">
-    </div>
-  </form>
   </div>
 </div>
 
