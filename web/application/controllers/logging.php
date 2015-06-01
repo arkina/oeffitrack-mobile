@@ -29,6 +29,15 @@ class Logging extends CI_Controller
     $this->load->view('stdfooter');
   }
   
+  function moblogtool($routeid, $mock = '0')
+  {
+    $this->load->model('routeinfo');
+    $route = $this->routeinfo->get($routeid);
+    $this->load->view('stdheader');
+    $this->load->view('logtool', array('route' => $route, 'mock' => $mock));
+    $this->load->view('stdfooter');
+  }
+  
   function log()
   {
     if (!$this->session->userdata('logged_in')) {
