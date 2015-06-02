@@ -9,7 +9,9 @@
 <script src="<?php echo config_item('oet_jquery');?>"></script>
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-
+<?php if ($mock != '0'):?>
+<script src="/js/geomock.js"></script>
+<?php endif;?>
 
 <script>
 
@@ -276,16 +278,21 @@ function logPosition(routeid, current_lat, current_lon)
     }
   });
   
+  console.log("log...");
+  
   $.post("/logging/log/", 
       {
         routeid: routeid,
         lat: current_lat,
         lon: current_lon,
-        routepointid: rpid
+        routepointid: rpid,
+        mobile: "mobtest"
       }, 
     function(data, textStatus) {
     //data contains the JSON object
     //textStatus contains the status: success, error, etc
+      console.log(textStatus);
+      console.log(data);
     }, "json");
 
 }

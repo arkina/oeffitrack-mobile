@@ -38,18 +38,22 @@ class Logging extends CI_Controller
   
   function log()
   {
-    if (!$this->session->userdata('logged_in')) {
+    if (!$this->session->userdata('logged_in') and $this->input->post('mobile', TRUE) != "mobtest") {
       die('not logged in');
     }
-    $this->load->model('positionlogger');
     
-    $logger =  $this->session->userdata('logger');
-    $loggerid = $logger['id'];
+    if ($this->session->userdata('logged_in')) {
+      $logger =  $this->session->userdata('logger');
+      $loggerid = $logger['id'];
+    } else {
+      $loggerid = 1; // mobile test logger
+    }
     $routeid = $this->input->post('routeid', TRUE);
     $lat = $this->input->post('lat', TRUE);
     $lon = $this->input->post('lon', TRUE);
     $routepointid = $this->input->post('routepointid', TRUE);
     
+    $this->load->model('positionlogger');
     $rv = $this->positionlogger->logPosition($loggerid, $routeid, $lat, $lon, $routepointid);
     $this->output->set_content_type('application/json');
     $this->output->set_output(json_encode(array('status' => 'OK')));
