@@ -29,11 +29,11 @@ class Logging extends CI_Controller
     $this->load->view('stdfooter');
   }
   
-  function moblogtool($routeid, $mock = '0')
+  function moblogtool($routeid, $mock = '0', $qunit = '0')
   {
     $this->load->model('routeinfo');
     $route = $this->routeinfo->get($routeid);
-    $this->load->view('mobile/mlogtool', array('route' => $route, 'mock' => $mock));
+    $this->load->view('mobile/mlogtool', array('route' => $route, 'mock' => $mock, 'qunit' => $qunit));
   }
   
   function log()

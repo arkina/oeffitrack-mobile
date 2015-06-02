@@ -6,6 +6,10 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 <link rel="stylesheet" type="text/css" href="/css/mobile.css">
+<?php if ($qunit == 'qunit'):?>
+<link rel="stylesheet" href="/css/qunit-1.18.0.css">
+<?php endif;?>
+
 <script src="<?php echo config_item('oet_jquery');?>"></script>
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
@@ -21,6 +25,9 @@ var info_markers = new Array();
 var bus_marker = null;
 
 function updateTimeTable(data){}
+
+function ret3() { return 3; }
+
 
 function initTimeTable(routeid)
 {
@@ -319,6 +326,12 @@ $(document).ready(function() {
 
   <div data-role="footer">
     <h1>Oeffitrack Mobile Logtool</h1>
+    <?php if ($qunit == 'qunit'):?>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="/js/qunit-1.18.0.js"></script>
+    <script src="/js/tests.js"></script>
+    <?php endif;?>
   </div>
 </div>
 
