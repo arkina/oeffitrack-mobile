@@ -19,47 +19,12 @@ var map;
 var path;
 var info_markers = new Array();
 var bus_marker = null;
-function updateTimeTable(data)
-{
-  /*$.each(data, function(i, val) {
-    if ($("#stopnr" + i).text() != val.stopnr) {
-      $("#stopnr" + i).text(val.stopnr);
-    }
-    if ($("#name" + i).text() != val.name) {
-      $("#name" + i).text(val.name);
-    }
-    if ($("#stoptime" + i).text() != val.stoptime) {
-      $("#stoptime" + i).text(val.stoptime);
-    }
-    if (val.logtime != null && $("#logtime" + i).text() != val.logtime) {
-      $("#logtime" + i).text(val.logtime);
-    }
-    if (val.diff != null &&$("#diff" + i).text() != val.diff) {
-      $("#diff" + i).text(val.diff);
-      if (Math.abs(val.diff) > 3*60)
-      {
-        $("#busicon" + i).html("<img src='/img/busstopred.png'/>");
-      }
-    }
-  });
-  */
-}
+
+function updateTimeTable(data){}
 
 function initTimeTable(routeid)
 {
   $.getJSON( "/route/data/" + routeid, function( data ) {
-    /*jQuery.each(data, function(i, val) {
-      $("#timetable").append(
-      "<tr>" +
-      "<td><span id='busicon" + i + "'><img src='/img/busstop.png'/></span></td>" +
-      "<td><span id='stopnr" + i + "'></span></td>" +
-      "<td><span id='name" + i + "'></span></td>" +
-      "<td><span id='stoptime" + i + "'></span></td>" +
-      "<td><span id='logtime" + i + "'></span></td>" +
-      "<td><span id='diff" + i + "'></span></td>" +
-      "</tr>"
-      );
-    });*/
   })
   .done(
     function(data) {
@@ -337,7 +302,7 @@ $(document).ready(function() {
 
 <div data-role="page" id="map-page">
   <div data-role="header">
-    <h1>Oeffitrack Mobile Logtool</h1>
+    <h1><?php echo $route['name'];?></h1>
     <div data-role="controlgroup" data-type="horizontal">
       <a href="#" class="ui-btn" id="start_btn">Start</a>
       <a href="#" class="ui-btn" id="reset_btn">Reset</a>
@@ -353,7 +318,7 @@ $(document).ready(function() {
   </div>
 
   <div data-role="footer">
-    <h1>Footer Text</h1>
+    <h1>Oeffitrack Mobile Logtool</h1>
   </div>
 </div>
 
