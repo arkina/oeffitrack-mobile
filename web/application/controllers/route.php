@@ -15,6 +15,7 @@ class Route extends CI_Controller
   
   function data($routeid, $datetime = null)
   {
+    // sleep ( 2 ); Sleep for delay simulation asynchron js tests 
     $datetime = getStdDateTime();
     $this->load->model('businformation');
     $rows = $this->businformation->getActualTarget($routeid, $datetime);
