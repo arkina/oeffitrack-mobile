@@ -6,12 +6,8 @@ QUnit.test( "hello test", function( assert ) {
 });
 
 
-/*
-QUnit.test( "ret3", function( assert ) {
-  assert.equal( 3, ret3(), "Passed!" );
-});
-*/
-
+//-----------------------------------------------------------------------------
+// async test example 
 QUnit.test( "assert.async() test", function( assert ) {
   var done = assert.async();
   initTimeTable(2);
