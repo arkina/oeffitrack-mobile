@@ -26,9 +26,6 @@ var bus_marker = null;
 
 function updateTimeTable(data){}
 
-function ret3() { return 3; }
-var done_val = 0;
-
 function initTimeTable(routeid)
 {
   $.getJSON( "/route/data/" + routeid, function( data ) {
@@ -37,7 +34,6 @@ function initTimeTable(routeid)
     function(data) {
       updateTimeTable(data);
       initMapStops(map, data);
-      done_val = 3;
     }
   );
 }
