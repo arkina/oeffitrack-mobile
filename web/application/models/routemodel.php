@@ -2,12 +2,23 @@
 
   class Routemodel extends CI_Model
   {
-
-    function deleteRoute($routeid) 
+    
+    function resetRoute($routeid)
     {
       $rv = true;
       $this->db->query('delete from routelogs where  exists(select 1 from routepoints rp where rp.routeid=? and rp.id=routelogs.routepointid)', array($routeid));
       $this->db->delete('drivelogs', array('routeid' => $routeid));
+      return $rv;
+    }
+    
+    function deleteRoute($routeid) 
+    {
+      $rv = true;
+      /*
+      $this->db->query('delete from routelogs where  exists(select 1 from routepoints rp where rp.routeid=? and rp.id=routelogs.routepointid)', array($routeid));
+      $this->db->delete('drivelogs', array('routeid' => $routeid));
+      */
+      $this->resetRoute($routeid);
       $this->db->delete('routepoints', array('routeid' => $routeid));
       $this->db->delete('routes', array('id' => $routeid));
       

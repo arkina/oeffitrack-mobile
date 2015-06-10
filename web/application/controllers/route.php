@@ -40,4 +40,12 @@ class Route extends CI_Controller
     $this->output->set_output(json_encode($rows));
   }
   
+  function reset($routeid)
+  {
+    $this->load->model('routemodel');
+    $this->routemodel->resetRoute($routeid);
+    $this->output->set_content_type('application/json'); 
+    $this->output->set_output(json_encode(array('status' => 'OK')));
+  }
+  
 }
