@@ -9,5 +9,5 @@ Install:
 - create a mysql user and configure web/application/config/database.php
 - After these steps the basic version of oeffitrack should run in your browser
 
-Run Tests
-http://localhost/logging/moblogtool/2/1/qunit
+Run Tests:
+-  http://localhost/logging/moblogtool/2/1/qunit
