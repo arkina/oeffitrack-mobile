@@ -87,3 +87,35 @@ QUnit.test( "info_markers", function( assert ) {
 });
 
 
+//-----------------------------------------------------------------------------
+QUnit.test( "simulate logging", function( assert ) {
+  var done = assert.async();
+  setTimeout(function() {
+    $('#start_btn').trigger('click');
+  }, 5000);
+  
+  setTimeout(function() {
+    assert.equal( $('#start_btn').text(), "Stop", "start button shows stop" );
+    assert.equal( logging, true, "logging is true" );
+  }, 10000);
+  
+  setTimeout(function() {
+    assert.equal( $('#start_btn').text(), "Stop", "start button shows stop" );
+    assert.equal( logging, true, "logging is true" );
+    assert.equal( routestations[0].logged, true, "first routestation reached!" );
+    assert.equal( routestations[1].logged, false, "second routestation not reached!" );
+  }, 20000);
+  
+  setTimeout(function() {
+    // click to stop
+    $('#start_btn').trigger('click');
+  }, 25000);
+  
+  setTimeout(function() {
+    assert.equal( $('#start_btn').text(), "Start", "start button shows start again" );
+    assert.equal( logging, false, "logging is false" );
+    done();
+  }, 30000);
+
+});
+
