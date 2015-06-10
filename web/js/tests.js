@@ -1,10 +1,15 @@
 
 //------------------------------------------------------------------------------
 // Dummy Test to check if qunit works!
+//-----------------------------------------------------------------------------
 QUnit.test( "check qunit", function( assert ) {
   assert.ok( 1 == "1", "qunit works!" );
 });
 
+
+//-----------------------------------------------------------------------------
+// Mobile Logtool Tests
+//-----------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------
 QUnit.test( "getDistanceFromLatLonInMeter", function( assert ) {
@@ -45,5 +50,40 @@ QUnit.test( "load map", function( assert ) {
   }, 1500);
 });
 
+
+//-----------------------------------------------------------------------------
+QUnit.test( "load routestations", function( assert ) {
+  var done = assert.async();
+  setTimeout(function() {
+    assert.equal( routestations.length, 7, "routestations.length" );
+    for (var i = 0; i < routestations.length; i++) {
+      assert.equal( routestations[i].logged, false, "routestation logged" );
+      assert.equal( routestations[i].stopnr, i + 1, "routestation stopnr" );
+    }
+    done();
+  }, 1000);
+});
+
+//-----------------------------------------------------------------------------
+QUnit.test( "info_markers", function( assert ) {
+  var done = assert.async();
+  setTimeout(function() {
+    assert.equal( info_markers.length, 7, "info_markers.length" );
+    for (var i = 0; i < routestations.length; i++) {
+      assert.equal( info_markers[i].logged, false, "info_marker logged" );
+      assert.ok( info_markers[i].marker.clickable, "info_marker clickable" );
+      assert.equal( info_markers[i].marker.icon, "/img/busstop.png", "info_marker busstop icon" );
+    }
+    assert.equal( info_markers[3].marker.title, "Ilz Hauptplatz", "info_marker title" );
+    assert.equal( Math.round(info_markers[3].marker.position.A), 47, "info_marker position A" );
+    assert.equal( Math.round(info_markers[3].marker.position.F), 16, "info_marker position F" );
+    assert.equal( info_markers[3].info.content, 
+                  "<h1>Ilz Hauptplatz</h1>target: 09:15:00<br />actual: <br />", 
+                  "info_marker content" );
+    assert.ok( info_markers[3].marker.visible, "info_marker visible" );
+
+    done();
+  }, 1000);
+});
 
 
