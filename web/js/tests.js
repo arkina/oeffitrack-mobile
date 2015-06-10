@@ -1,8 +1,22 @@
 
 //------------------------------------------------------------------------------
 // Dummy Test to check if qunit works!
-QUnit.test( "hello test", function( assert ) {
-  assert.ok( 1 == "1", "Passed!" );
+QUnit.test( "check qunit", function( assert ) {
+  assert.ok( 1 == "1", "qunit works!" );
+});
+
+
+//-----------------------------------------------------------------------------
+QUnit.test( "getDistanceFromLatLonInMeter", function( assert ) {
+  
+  meters = getDistanceFromLatLonInMeter(10, 11, 12, 13);
+  assert.equal( Math.round(meters), 311622, "meters far distance" );
+  
+  meters = getDistanceFromLatLonInMeter(47.10, 15.5, 47.10, 15.51);
+  assert.equal( Math.round(meters), 757, "meters middle distance" );
+  
+  meters = getDistanceFromLatLonInMeter(47.10, 15.5, 47.1001, 15.5002);
+  assert.equal( Math.round(meters), 19, "meters near distance" );
 });
 
 
@@ -30,4 +44,6 @@ QUnit.test( "load map", function( assert ) {
     done();
   }, 1500);
 });
+
+
 
