@@ -306,7 +306,7 @@ $(document).ready(function() {
 
 <div data-role="page" id="map-page">
   <div data-role="header">
-    <h1><?php echo $route['name'];?></h1>
+    <h1 id="route_name"><?php echo $route['name'];?></h1>
     <div data-role="controlgroup" data-type="horizontal">
       <a href="#" class="ui-btn" id="start_btn">Start</a>
       <a href="#" class="ui-btn" id="reset_btn">Reset</a>
@@ -322,7 +322,7 @@ $(document).ready(function() {
   </div>
 
   <div data-role="footer">
-    <h1>Oeffitrack Mobile Logtool</h1>
+    <h1 id="footer_txt">Oeffitrack Mobile Logtool</h1>
     <?php if ($qunit == 'qunit'):?>
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
