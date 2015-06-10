@@ -292,6 +292,14 @@ $(document).ready(function() {
       startLogging();
     }
   });
+  
+  $("#reset_btn").click(function() {
+    $.getJSON( "/route/reset/" + routeid)
+    .done(function(data) {
+      window.alert('route has been reset!');
+    }
+  );
+  });
 
 });
 
