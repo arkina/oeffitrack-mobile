@@ -16,6 +16,15 @@ class Logging extends CI_Controller
     $this->load->view('stdfooter');
   }
   
+   function mobile($qunit = '0')
+  {
+    $this->db->select('id,name');
+    $this->db->order_by('name', 'asc'); 
+    $query = $this->db->get('routes');
+    $rows = $query->result_array();
+    $this->load->view('mobile/mobloggingroutes', array('rows' => $rows, 'qunit' => $qunit));
+  }
+  
   
   function logtool($routeid, $mock = '0')
   {
