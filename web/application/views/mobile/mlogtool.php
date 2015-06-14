@@ -315,6 +315,7 @@ $(document).ready(function() {
 <div data-role="page" id="map-page">
   <div data-role="header">
     <h1 id="route_name"><?php echo $route['name'];?></h1>
+        <a href="/logging/mobile" data-icon="delete" class="ui-btn-right">Back</a>
     <div data-role="controlgroup" data-type="horizontal">
       <a href="#" class="ui-btn" id="start_btn">Start</a>
       <a href="#" class="ui-btn" id="reset_btn">Reset</a>
