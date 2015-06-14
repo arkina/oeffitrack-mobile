@@ -303,12 +303,7 @@ $(document).ready(function() {
 
 });
 
-
-
 </script>
-
-
-
 </head>
 
 
@@ -322,11 +317,6 @@ $(document).ready(function() {
     </div>
   </div>
  
- <!--
-  <div data-role="main" class="ui-content">
-    <h3> TEST ...</h3>
-  </div>-->
-  
   <div role="main" class="ui-content" id="map-canvas">
   </div>
 
