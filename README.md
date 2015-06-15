@@ -1,7 +1,7 @@
 # oeffitrack-mobile
 Mobile public transport tracking App
 
-Solarized dark             |  Solarized Ocean
+Select a Route             |  Mobile Logtool
 :-------------------------:|:-------------------------:
 <img src="https://github.com/chm0815/oeffitrack-mobile/blob/master/screenshots/oet_logtool_rotes.PNG" width="300" height="500"/>  | <img src="https://github.com/chm0815/oeffitrack-mobile/blob/master/screenshots/oet_logtool_logging.PNG" width="300" height="500"/>
 
