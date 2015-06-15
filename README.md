@@ -1,9 +1,9 @@
 # oeffitrack-mobile
 Mobile public transport tracking App
 
-![logtool routes](https://github.com/chm0815/oeffitrack-mobile/blob/master/screenshots/oet_logtool_rotes.PNG)
+![logtool routes](https://github.com/chm0815/oeffitrack-mobile/blob/master/screenshots/oet_logtool_rotes.PNG =300x500)
 
-![mobile logtool](https://github.com/chm0815/oeffitrack-mobile/blob/master/screenshots/oet_logtool_logging.PNG)
+![mobile logtool](https://github.com/chm0815/oeffitrack-mobile/blob/master/screenshots/oet_logtool_logging.PNG =300x500)
 
 
 Install:
