@@ -8,7 +8,7 @@ function getStdDateTime($datetime = '0')
 {
   if ($datetime == '0')
   {
-    $datetime = date('Y-m-d H:i:s');
+    $datetime = @date('Y-m-d H:i:s');
   }
   return $datetime;
 }
@@ -19,5 +19,5 @@ function getStdDateTime($datetime = '0')
 //@return the start time in format  Y-m-d H:i:s
 function startTime($datetime)
 {
-  return date('Y-m-d H:i:s', strtotime($datetime) - 60 * 60 * 12);
+  return @date('Y-m-d H:i:s', strtotime($datetime) - 60 * 60 * 12);
 }
